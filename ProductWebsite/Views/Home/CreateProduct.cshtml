@@ -1,0 +1,37 @@
+﻿@model ProductWebsite.Models.Products
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateUser</title>
+</head>
+<body>
+    <div> 
+@using (Html.BeginForm("CreateProduct", "Home"))
+{
+    <table id="tableProducts" class="table">
+   
+        <tr>
+            <td>Description</td>
+            <td><input name="Model" id="txtModel" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Brand</td>
+            <td><input name="Brand" id="txtBrand" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td><input name="Description" id="txtProductDescription" type="text" /></td>
+        </tr>
+        
+        
+      </table>
+    <input type="submit" id="btnCreate" value="Create New Product" class="btn btn-default" />
+
+}
+</div>
+</body>
+</html>

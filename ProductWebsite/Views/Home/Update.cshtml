@@ -1,0 +1,40 @@
+﻿@model ProductWebsite.Models.Product
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateUser</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Update", "Home"))
+        {
+            <table id="tableProducts" class="table">
+                <tr>
+                    <td>ID</td>
+                    <td><input name="ID" id="txtID" type="text" value="@Model.Id" readonly="readonly"/></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input name="Model" id="txtModel" type="text"  value="@Model.Model"/></td>
+                </tr>
+                <tr>
+                    <td>Brand</td>
+                    <td><input name="Brand" id="txtBrand" type="text"  value="@Model.Brand" /></td>
+                </tr>
+                <tr>
+                    <td>Model</td>
+                    <td><input name="Description" id="txtProductDescription" type="text" value="@Model.Description" /></td>
+                </tr>
+
+
+            </table>
+            <input type="submit" id="btnUpdate" value="Update" class="btn btn-default" />
+
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@model ProductWebsite.Models.Products
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create a product</title>
+</head>
+<body>
+ 
+
+
+    <div> 
+       @using (Html.BeginForm("ViewProduct", "Home"))
+       {
+        <table id="tableProducts" class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Brand
+                </th>
+                <th>
+                    Model
+                </th>
+            </tr> 
+
+                @foreach (var item in Model.listOfProducts)
+                {
+                    <tr>
+                        <td>@item.Id </td>
+                        <td>@item.Description </td>
+                        <td>@item.Brand</td>
+                        <td>@item.Model</td>
+                        <td>
+                            @Html.ActionLink("Update", "Update", new { id = item.Id }) |            
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })   
+                                 
+                                                  
+                            
+                        </td> 
+                    </tr>
+                 }
+            <tr>
+                <td colspan="4"></td>
+               <td colspan="5"> @Html.ActionLink("Add Product", "CreateProduct")</td>
+            </tr>
+
+
+
+            
+
+            
+                    
+        </table>
+       
+
+       }  
+    </div>
+</body>
+</html>
