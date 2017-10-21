@@ -8,6 +8,7 @@ using ProductWebsite.Models;
 using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace ProductWebsite.Controllers
 {
@@ -15,7 +16,7 @@ namespace ProductWebsite.Controllers
     {
 
         static Products products = new Products();
-        byte[] credentials = Encoding.ASCII.GetBytes("scott:tiger");
+        byte[] credentials = Encoding.ASCII.GetBytes(Convert.ToString( ConfigurationManager.AppSettings["Username"]) + ":"+ Convert.ToString(ConfigurationManager.AppSettings["Password"]));
         public string Model { get; private set; }
 
         [HttpPost]
@@ -160,7 +161,7 @@ namespace ProductWebsite.Controllers
         public HttpClient CreateHTTPClient()
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:52424/");
+            client.BaseAddress = new Uri(Convert.ToString(ConfigurationManager.AppSettings["ProductAPIURI"]));
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(credentials));
             return client;
         }
